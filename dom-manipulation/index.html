@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Dynamic Quote Generator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Dynamic Quote Generator</h1>
+    <p class="tagline">
+      DOM manipulation, web storage, JSON, and server sync in one small app.
+    </p>
+  </header>
+
+  <main class="layout">
+    <!-- Main quote area -->
+    <section class="quote-section">
+      <div class="quote-toolbar">
+        <label for="categoryFilter">Filter by category:</label>
+        <select id="categoryFilter">
+          <option value="all">All Categories</option>
+        </select>
+
+        <button id="newQuote" type="button">
+          Show New Quote
+        </button>
+      </div>
+
+      <article
+        id="quoteDisplay"
+        class="quote-display"
+        aria-live="polite"
+      >
+        <p id="quoteText" class="quote-text">
+          Click "Show New Quote" to get started.
+        </p>
+        <p class="quote-meta">
+          <span id="quoteCategory" class="quote-category"></span>
+          <span id="quoteSource" class="quote-source"></span>
+        </p>
+      </article>
+
+      <section class="quote-list-section">
+        <h2>All quotes in current filter</h2>
+        <ul id="quoteList" class="quote-list"></ul>
+      </section>
+    </section>
+
+    <!-- Sidebar: add quote + import/export + sync -->
+    <aside class="sidebar">
+      <section id="addQuoteSection" class="card">
+        <!-- Add-quote form will be created dynamically via createAddQuoteForm() -->
+      </section>
+
+      <section class="card">
+        <h2>Import / Export</h2>
+        <div class="form-row">
+          <button id="exportQuotes" type="button">
+            Export quotes as JSON
+          </button>
+        </div>
+        <div class="form-row">
+          <label for="importFile">Import quotes from JSON:</label>
+          <input
+            type="file"
+            id="importFile"
+            accept=".json"
+          />
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Server sync (simulation)</h2>
+        <div class="form-row">
+          <button id="syncNow" type="button">
+            Sync now
+          </button>
+        </div>
+        <p
+          id="syncStatus"
+          class="status-message"
+          aria-live="polite"
+        ></p>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="app-footer">
+    <p>
+      ALX Front-End Web Development — DOM manipulation, web storage and JSON
+      project.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
